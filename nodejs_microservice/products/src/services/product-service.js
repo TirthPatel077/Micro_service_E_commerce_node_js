@@ -17,7 +17,7 @@ class ProductService {
     
     async GetProducts(){
         const products = await this.repository.Products();
-        console.log(products);
+        // console.log(products);
         let categories = {};
 
         products.map(({ type }) => {
@@ -61,7 +61,7 @@ class ProductService {
                 data: { userId, product, qty}
             };
  
-             return FormateData(payload)
+             return FormateData(payload);
         }else{
             return FormateData({error: 'No product Available'});
         }

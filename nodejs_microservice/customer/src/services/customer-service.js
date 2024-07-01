@@ -25,7 +25,7 @@ class CustomerService {
             }
         }
         
-        return FormateData(null);
+        return ;
     }
 
     async SignUp(userInputs){
@@ -94,9 +94,9 @@ class CustomerService {
  
         console.log('Triggering.... Customer Events')
 
-        payload = JSON.parse(payload)
+        // payload = JSON.parse(payload)
 
-        const { event, data } =  payload;
+        const { event , data  } =  payload;
 
         const { userId, product, order, qty } = data;
 
@@ -105,6 +105,7 @@ class CustomerService {
             case 'REMOVE_FROM_WISHLIST':
                 this.AddToWishlist(userId,product)
                 break;
+                
             case 'ADD_TO_CART':
                 this.ManageCart(userId,product, qty, false);
                 break;
@@ -113,6 +114,9 @@ class CustomerService {
                 break;
             case 'CREATE_ORDER':
                 this.ManageOrder(userId,order);
+                break;
+            case 'TEST':
+                console.log("TESTING");
                 break;
             default:
                 break;

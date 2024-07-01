@@ -58,18 +58,20 @@ module.exports = (app, channel) => {
   });
 
   app.put("/wishlist", UserAuth, async (req, res, next) => {
+    
     const { _id } = req.user;
 
+    // console.log(_id);
     const { data } = await service.GetProductPayload(
       _id,
       { productId: req.body._id },
       "ADD_TO_WISHLIST"
     );
-
-    PublishCustomerEvent(data);
+    //  console.log(data);
+    await PublishCustomerEvent(data);
     // PublishMessage(channel, CUSTOMER_SERVICE, JSON.stringify(data));
 
-    res.status(200).json(data.data.product);
+    res.status(200).json(data);
   });
 
   app.delete("/wishlist/:id", UserAuth, async (req, res, next) => {

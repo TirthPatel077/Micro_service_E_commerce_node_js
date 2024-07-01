@@ -80,11 +80,13 @@ class ShoppingRepository {
 
         const cart = await CartModel.findOne({ customerId: customerId })
 
+        console.log(cart);
         if(cart){         
             
             let amount = 0;   
 
             let cartItems = cart.items;
+            
 
             if(cartItems.length > 0){
                 //process Order

@@ -56,6 +56,27 @@ module.exports.FormateData = (data) => {
   }
 };
 
+module.exports.PublishCustomerEvent = async (payload) => {
+  // console.log(payload);
+  // console.log("babasankalp");
+  // axios.put("localhost:8001/app-events", {
+  //   payload,
+  // });
+  fetch('http://localhost:8000/customer/app-events/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      payload
+    }),
+        })
+
+      // axios.post(`/customer/app-events/`,{
+      //     payload
+      // });
+};
+
 //Message Broker
 
 // module.exports.CreateChannel = async () => {

@@ -6,14 +6,16 @@ module.exports = (app) => {
     app.use('/app-events',async (req,res,next) => {
 
         const { payload } = req.body;
+        // console.log("babasankalp");
 
         //handle subscribe events
         service.SubscribeEvents(payload);
 
         console.log("============= Shopping ================");
-        console.log(payload);
+        // console.log(payload);
         res.json(payload);
-
+        // res.json()
+        // res.json("sanklap");
     });
 
 }

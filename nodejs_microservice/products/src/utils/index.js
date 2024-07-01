@@ -59,13 +59,24 @@ module.exports.FormateData = (data) => {
 
 //Raise Events
 module.exports.PublishCustomerEvent = async (payload) => {
-  axios.post("http://customer:8001/app-events/", {
-    payload,
-  });
+  // console.log(payload);
+  // console.log("babasankalp");
+  // axios.put("localhost:8001/app-events", {
+  //   payload,
+  // });
+  fetch('http://localhost:8000/customer/app-events/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      payload
+    }),
+        })
 
-  //     axios.post(`${BASE_URL}/customer/app-events/`,{
-  //         payload
-  //     });
+      // axios.post(`/customer/app-events/`,{
+      //     payload
+      // });
 };
 
 module.exports.PublishShoppingEvent = async (payload) => {
@@ -73,9 +84,18 @@ module.exports.PublishShoppingEvent = async (payload) => {
   //         payload
   // });
 
-  axios.post(`http://shopping:8003/app-events/`, {
-    payload,
-  });
+  // axios.post("http://shopping:8003/app-events/", {
+  //   payload,
+  // });
+  fetch('http://localhost:8000/shopping/app-events/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      payload
+    }),
+        })
 };
 
 //Message Broker

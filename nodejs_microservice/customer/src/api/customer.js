@@ -43,7 +43,7 @@ module.exports = (app) => {
      
 
     app.get('/profile', UserAuth ,async (req,res,next) => {
-
+        console.log(req.user);
         const { _id } = req.user;
         const { data } = await service.GetProfile({ _id });
         res.json(data);
