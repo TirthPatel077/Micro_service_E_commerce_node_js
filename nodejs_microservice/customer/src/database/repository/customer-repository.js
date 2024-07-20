@@ -46,7 +46,7 @@ class CustomerRepository {
 
     async FindCustomerById({ id }){
 
-        const existingCustomer = await CustomerModel.findById(id);
+        const existingCustomer = await CustomerModel.findById(id).populate('address');
         // existingCustomer.cart = [];
         // existingCustomer.orders = [];
         // existingCustomer.wishlist = [];
